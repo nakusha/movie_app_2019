@@ -1,10 +1,15 @@
 import React from 'react';
-import Test from "./test";
+
+function Food({ fav }){
+  return <h1>I Like {fav}</h1>
+}
+
 function App() {
   return (
     <div>
       <h1>Hello</h1>
-      <Test/>
+      <Food 
+        fav="kimchi"/>
     </div>
   );
 }
