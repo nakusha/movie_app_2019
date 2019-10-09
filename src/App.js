@@ -1,17 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from "axios";
 
 class App extends React.Component{
   state = {
     isLoading: true,
-    movie: []
+    movies: []
+  };
+
+  getMovies = async () => {
+    //npm i axios
+    // https://yts-proxy.now.sh/list_movies.json
+    const movies = await axios.get("https://yts-proxy.now.sh/list_movies.json");
   };
 
   componentDidMount(){
-    setTimeout(() => {
-      // state에 없는것을 선언해도 애러는 발생하지 않는다.
-      this.setState({isLoading: false, book:false});
-    }, 6000);
+    this.getMovies();
   };
 
   render(){
