@@ -7,10 +7,11 @@ class App extends React.Component{
     count: 0
   };
   add = () => {
-    console.log("add");
+    // if change state do not dirctly, bcz react do not refresh render function 
+    this.setState(current => ({ count:current.count + 1 }))
   };
   minus = () => {
-    console.log("Minus");
+    this.setState(current => ({ count:current.count - 1 }))
   };
   render(){
     return (
