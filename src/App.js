@@ -3,36 +3,20 @@ import PropTypes from 'prop-types';
 
 class App extends React.Component{
   state = {
-    // input can change data
-    count: 0
-  };
-
-  add = () => {
-    // if change state do not dirctly, bcz react do not refresh render function 
-    this.setState(current => ({ count:current.count + 1 }))
-  };
-
-  minus = () => {
-    this.setState(current => ({ count:current.count - 1 }))
+    isLoading: true,
+    movie: []
   };
 
   componentDidMount(){
-    console.log("component mount")
-  };
-
-  componentDidUpdate(){
-    console.log("component update")
+    setTimeout(() => {
+      // state에 없는것을 선언해도 애러는 발생하지 않는다.
+      this.setState({isLoading: false, book:false});
+    }, 6000);
   };
 
   render(){
-    console.log("rendering")
-    return (
-      <div>
-        <h1>The number is : {this.state.count}</h1>
-        <button onClick={this.add}>Add</button>
-        <button onClick={this.minus}>Minus</button>
-      </div>
-    );
+    const { isLoading } = this.state;
+    return <div>{isLoading ? "Loading" : "We are ready"}</div>;
   }
 }
 
