@@ -4,6 +4,14 @@ import axios from "axios";
 import Movie from "./Movie";
 import "./App.css"
 
+/**
+ * uplaod cloude
+ * npm i gh-pages
+ * package json에 추가
+ * "homepage":"https://nakusha.github.io/movie_app_2019/"
+ * 
+ *  npm run deploy
+ */
 
 class App extends React.Component{
   state = {
